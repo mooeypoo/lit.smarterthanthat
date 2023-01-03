@@ -11,7 +11,7 @@ collections:
     folder: 'content/writing'
     format: 'frontmatter'
     create: true
-    slug: '{{date.year}}-{{date.month}}-{{date.day}}-{{slug}}'
+    slug: '{{fields.date.year}}-{{fields.date.month}}-{{slug}}'
     editor:
       preview: false
     fields:
