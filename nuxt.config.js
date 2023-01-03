@@ -26,7 +26,7 @@ export default {
   //     const path = require('path')
   //     return fs.readdirSync('./content/writing').map((file) => {
   //       return {
-  //         route: `/blog/${path.parse(file).name}`, // Return the slug
+  //         route: `/writing/${path.parse(file).name}`, // Return the slug
   //         payload: require(`./content/writing/${file}`)
   //       }
   //     })

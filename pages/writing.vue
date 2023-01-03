@@ -10,7 +10,7 @@
 
 <script>
 export default {
-  name: 'ListPage',
+  name: 'WritingPage',
   async asyncData ({ $content }) {
     const posts = await $content('writing').fetch()
 
