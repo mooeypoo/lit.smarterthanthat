@@ -20,4 +20,5 @@ collections:
       - { label: 'Description', name: 'description', widget: 'string' }
       - { label: 'Tags', name: 'tags', widget: 'list', allow_add: true, default: ['prose'] }
       - { label: 'Image', name: 'image', widget: 'image' }
+      - { label: 'Image credit', name: 'image_credit', widget: 'string' }
       - { label: 'Body', name: 'body', widget: 'markdown' }
