@@ -1,7 +1,7 @@
 <template>
   <div>
     <li v-for="post of posts" :key="post.slug">
-      <NuxtLink :to="post.slug">
+      <NuxtLink :to="getSlug(post.slug)">
         {{ post.title }}
       </NuxtLink>
     </li>
@@ -16,6 +16,11 @@ export default {
 
     return {
       posts
+    }
+  },
+  methods: {
+    getSlug: (slug) => {
+      return '/' + slug
     }
   }
 }

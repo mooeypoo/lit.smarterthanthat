@@ -1,9 +1,11 @@
 <template>
-  <h1>Welcome!</h1>
+  <div>
+    <h1>About me</h1>
+  </div>
 </template>
 
 <script>
 export default {
-  name: 'IndexPage'
+  name: 'WritingPage'
 }
 </script>
