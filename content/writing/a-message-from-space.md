@@ -4,6 +4,11 @@ date: 2015-10-25T18:55:49.778Z
 description: Two astronomers receive a surprising message from space.
 tags:
   - prose
+image: assets/images/csiro_scienceimage_4350_csiros_parkes_radio_telescope_with_moon_in_the_background.jpg
+image_credit: <a
+  href="https://commons.wikimedia.org/wiki/File:CSIRO_ScienceImage_4350_CSIROs_Parkes_Radio_Telescope_with_moon_in_the_background.jpg">CSIRO</a>,
+  <a href="https://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>, via
+  Wikimedia Commons
 ---
 The night was cool and dry, with only a handful of clouds peppering the dark skies, allowing stars shine brightly through the window shades. Marcus Gaynes groaned sleepily, turned halfway around in his plush bed, shifting his weight to the side with a grunt and cursed, his arm searching for the cell phone on the bedside table.
 
