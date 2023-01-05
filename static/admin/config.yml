@@ -2,8 +2,8 @@ backend:
   name: git-gateway
   branch: main # Branch to update (optional; defaults to master)
 
-media_folder: static/img
-public_folder: /img
+media_folder: static/assets/images
+public_folder: assets/images
 
 collections:
   - name: 'writing'
@@ -19,4 +19,5 @@ collections:
       - { label: 'Publish Date', name: 'date', widget: 'datetime' }
       - { label: 'Description', name: 'description', widget: 'string' }
       - { label: 'Tags', name: 'tags', widget: 'list', allow_add: true, default: ['prose'] }
+      - { label: 'Image', name: 'image', widget: 'image' }
       - { label: 'Body', name: 'body', widget: 'markdown' }
