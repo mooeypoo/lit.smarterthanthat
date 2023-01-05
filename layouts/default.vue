@@ -33,10 +33,11 @@
         :append-icon="$vuetify.theme.dark ? 'mdi-weather-night' : 'mdi-white-balance-sunny'"
       />
 
-      <template #extension>
-        <v-row
-          v-if="$store.state.post"
-        >
+      <template
+        v-if="$store.state.post"
+        #extension
+      >
+        <v-row>
           <v-col
             align="center"
           >

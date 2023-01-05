@@ -1,43 +1,75 @@
+<!-- eslint-disable vue/no-v-html -->
 <template>
   <div>
     <v-parallax
-      :src="post.image"
+      :src="getImageDetails(post).src"
     >
       <v-row
         align="center"
         justify="center"
       >
         <v-col
-          class="text-center"
-          cols="12"
+          class="text-center col-sm-12 col-md-9"
         >
           <v-card
             class="mx-auto"
             outlined
             shaped
-            max-width="70%"
             dark
           >
             <v-card-title class="justify-center word-break">
               <span>{{ post.title }}</span>
             </v-card-title>
-            <v-card-subtitle class="justify-center">
+            <v-card-subtitle
+              v-if="post.description"
+              class="justify-center"
+            >
               {{ post.description }}
             </v-card-subtitle>
+            <v-card-text>
+              <v-row>
+                <v-col
+                  class="ma-0 pa-0"
+                >
+                  <v-chip
+                    v-for="tag in post.tags"
+                    :key="post.slug + tag"
+                    class="ma-2 text-capitalize"
+                    x-small
+                    color="blue"
+                    label
+                    outlined
+                  >
+                    {{ tag }}
+                  </v-chip>
+                </v-col>
+              </v-row>
+              <v-row
+                v-if="post.date"
+                class="text-subtitle-2"
+              >
+                <v-col
+                  v-if="post.date"
+                  class="pa-1"
+                >
+                  {{ showDate(post.date) }}
+                </v-col>
+              </v-row>
+            </v-card-text>
           </v-card>
         </v-col>
       </v-row>
     </v-parallax>
-    <v-chip
-      v-for="tag in post.tags"
-      :key="post.slug + tag"
-      class="mt-2 mr-2"
-      color="primary"
+    <v-row
+      v-if="getImageDetails(post).credit"
     >
-      {{ tag }}
-    </v-chip>
+      <v-col
+        class="text-right text-caption"
+        v-html="getImageDetails(post).credit"
+      />
+    </v-row>
     <v-divider
-      class="my-2"
+      class="my-5"
     />
     <nuxt-content :document="post" />
   </div>
@@ -64,6 +96,47 @@ export default {
 
     return {
       post
+    }
+  },
+  methods: {
+    showDate (dateStr) {
+      const d = new Date(dateStr)
+      const months = [
+        'January',
+        'February',
+        'March',
+        'April',
+        'May',
+        'June',
+        'July',
+        'August',
+        'September',
+        'October',
+        'November',
+        'December'
+      ]
+
+      return `${d.getDate()} ${months[d.getMonth()]} ${d.getFullYear()}`
+    },
+    getImageDetails (post) {
+      // eslint-disable-next-line no-console
+      const details = {
+        src: post.image
+          // Post image
+          ? post.image
+          // Default image
+          : 'assets/fountain-pen-writing.jpg',
+        credit: ''
+      }
+
+      if (post.image) {
+        details.credit = post.image_credit ? post.image_credit : ''
+      } else {
+        // There's a default image, use credit for default image
+        details.credit = '<a href="https://commons.wikimedia.org/wiki/File:Fountain_pen_writing_(literacy).jpg">Petar Milošević</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a>, via Wikimedia Commons'
+      }
+
+      return details
     }
   }
 }
